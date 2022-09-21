@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.housemanager.dao.SalaryMapper">
+  <insert id="saveSalary" parameterType="com.housemanager.pojo.Salary">
+    insert into salary(username,staffname,dates,base_wage,class_fee,base_performance,age_pay,phone_subsidy,traffic_subsidy,overtime_subsidy,labour_insurance,unemployment_insurance,medical_insurance,income_tax,accumulation_fund,should_wage,deduct_wage,real_wage)
+    values (#{username},#{staffname},#{dates},#{base_wage},#{class_fee},#{base_performance},#{age_pay},#{phone_subsidy},#{traffic_subsidy},#{overtime_subsidy},#{labour_insurance},#{unemployment_insurance},#{medical_insurance},#{income_tax},#{accumulation_fund},#{should_wage},#{deduct_wage},#{real_wage})
+  </insert>
+
+
+  <delete id="deleteSalary" parameterType="java.lang.Integer">
+    delete from salary where salary_id=#{salary_id}
+  </delete>
+
+  <select id="selectSalaryById" parameterType="java.lang.String" resultType="com.housemanager.pojo.Salary">
+    select * from salary where username=#{username}
+  </select>
+
+  <select id="selectSalaryByDate" parameterType="java.lang.String" resultType="com.housemanager.pojo.Salary">
+    select * from salary where username=#{username} and staffname=#{staffname} and dates=#{dates}
+  </select>
+
+  <select id="selectSalaryByDates" parameterType="java.lang.String" resultType="com.housemanager.pojo.Salary">
+    select * from salary where username=#{username} and dates=#{dates}
+  </select>
+
+  <select id="selectSalaryByDate1" parameterType="java.lang.String" resultType="com.housemanager.pojo.Salary">
+    select * from salary where username=#{username} and dates between #{dates1} and #{dates2}
+  </select>
+  <select id="selectAllSalary" resultType="com.housemanager.pojo.Salary">
+    select * from salary
+  </select>
+
+
+
+
+</mapper>
