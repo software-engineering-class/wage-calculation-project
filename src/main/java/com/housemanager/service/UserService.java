@@ -13,9 +13,13 @@ public interface UserService {
 
     User login(User u);
     User selectpass(User u);
+    User selectById(Integer userid);
     void updatepass(User u);
+    void updateuser(User u);
     void deleteById(Integer userid);
     void saveUser(User user);
     PageInfo<User> getUserPage(Integer pageNum, Integer pageSize);
     PageInfo<User> getUserPage(Integer pageNum, Integer pageSize,String username);
 }
+
+

@@ -11,13 +11,13 @@ public interface UserMapper {
     List<User> selectAllUser();
     List<User> selectAll(@Param("username") String username,@Param("password") String password);
     void updatePass(User user);
-
+    void updateUser(User user);
 
     List<User> selectPass(@Param("ID_card") String ID_card,@Param("pay_card") String pay_card);
 
     int insert(User record);
-    List<User> selectUserById(String username);
-
+    User selectUserById(Integer userid);
+    List<User> selectUserByName(String username);
     void saveUser(User user);
     void deleteUser(Integer userid);
 }

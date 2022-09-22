@@ -38,9 +38,22 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+
+
+    @Override
+    public User selectById(Integer userid) {
+        User user = userMapper.selectUserById(userid);
+        return user;
+    }
+
     @Override
     public void updatepass(User u) {
         userMapper.updatePass(u);
+    }
+
+    @Override
+    public void updateuser(User u) {
+        userMapper.updateUser(u);
     }
 
     @Override
@@ -63,7 +76,7 @@ public class UserServiceImpl implements UserService {
     public PageInfo<User> getUserPage(Integer pageNum, Integer pageSize,String username) {
         PageHelper.startPage(pageNum, pageSize);
 
-        List<User> hus = userMapper.selectUserById(username);
+        List<User> hus = userMapper.selectUserByName(username);
         PageInfo<User> userPageInfo = new PageInfo<>(hus);
         return userPageInfo;
 

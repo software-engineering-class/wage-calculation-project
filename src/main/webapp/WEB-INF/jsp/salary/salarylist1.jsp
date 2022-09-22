@@ -127,10 +127,10 @@
             </c:forEach>
             </tbody>
         </table>
-        <a class="btn btn-primary upload-btn" href="${pageContext.request.contextPath}/house/selectall?pageNo=1">首页</a>
-        <a class="btn btn-primary upload-btn" href="${pageContext.request.contextPath}/house/selectall?pageNo=${requestScope.houseinfo.prePage}">上一页</a>
-        <a class="btn btn-primary upload-btn" href="${pageContext.request.contextPath}/house/selectall?pageNo=${requestScope.houseinfo.nextPage}">下一页</a>
-        <a class="btn btn-primary upload-btn" href="${pageContext.request.contextPath}/house/selectall?pageNo=${requestScope.houseinfo.pages}">末页</a>
+        <a class="btn btn-primary upload-btn" href="${pageContext.request.contextPath}/salary/selectall?pageNo=1">首页</a>
+        <a class="btn btn-primary upload-btn" href="${pageContext.request.contextPath}/salary/selectall?pageNo=${requestScope.salaryinfo.prePage}">上一页</a>
+        <a class="btn btn-primary upload-btn" href="${pageContext.request.contextPath}/salary/selectall?pageNo=${requestScope.salaryinfo.nextPage}">下一页</a>
+        <a class="btn btn-primary upload-btn" href="${pageContext.request.contextPath}/salary/selectall?pageNo=${requestScope.salaryinfo.pages}">末页</a>
     </div>
 <%--    <button type="button" class="btn btn-success" id="" name="" onClick="location.href='savehouse'"><i class="Hui-iconfont">&#xe600;</i> 添加</button>--%>
 </div>

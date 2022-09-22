@@ -16,6 +16,20 @@ public class User {
 
     private Integer status;
 
+    private String phone;
+
+    private Integer departmentid;
+
+    private String departmentname;
+
+    public String getDepartmentname() {
+        return departmentname;
+    }
+
+    public void setDepartmentname(String departmentname) {
+        this.departmentname = departmentname;
+    }
+
     public Integer getUserid() {
         return userid;
     }
@@ -72,6 +86,23 @@ public class User {
         this.status = status;
     }
 
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Integer getDepartmentid() {
+        return departmentid;
+    }
+
+    public void setDepartmentid(Integer departmentid) {
+        this.departmentid = departmentid;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -82,6 +113,8 @@ public class User {
                 ", pay_card='" + pay_card + '\'' +
                 ", ID_card='" + ID_card + '\'' +
                 ", status=" + status +
+                ", phone='" + phone + '\'' +
+                ", departmentid=" + departmentid +
                 '}';
     }
 }

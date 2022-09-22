@@ -59,6 +59,8 @@
                 <th width="100">职工名</th>
                 <th width="200">身份证号</th>
                 <th width="200">银行卡号</th>
+                <th width="200">电话</th>
+                <th width="200">部门</th>
                 <th width="100">操作</th>
             </tr>
             </thead>
@@ -71,7 +73,8 @@
                     <td>${h.name}</td>
                     <td>${h.ID_card}</td>
                     <td>${h.pay_card}</td>
-
+                    <td>${h.phone}</td>
+                    <td>${h.departmentname}</td>
                     <td class="f-14 product-brand-manage">
 
                         <a style="text-decoration:none" class="ml-5" href="javascript:del(${h.userid});" title="删除">
@@ -83,10 +86,10 @@
             </tbody>
         </table>
     </div>
-    <a class="btn btn-primary upload-btn" href="${pageContext.request.contextPath}/customer/selectall?pageNo=1">首页</a>
-    <a class="btn btn-primary upload-btn" href="${pageContext.request.contextPath}/customer/selectall?pageNo=${requestScope.customerinfo.prePage}">上一页</a>
-    <a class="btn btn-primary upload-btn" href="${pageContext.request.contextPath}/customer/selectall?pageNo=${requestScope.customerinfo.nextPage}">下一页</a>
-    <a class="btn btn-primary upload-btn" href="${pageContext.request.contextPath}/customer/selectall?pageNo=${requestScope.customerinfo.pages}">末页</a>
+    <a class="btn btn-primary upload-btn" href="${pageContext.request.contextPath}/user/selectall?pageNo=1">首页</a>
+    <a class="btn btn-primary upload-btn" href="${pageContext.request.contextPath}/user/selectall?pageNo=${requestScope.userinfo.prePage}">上一页</a>
+    <a class="btn btn-primary upload-btn" href="${pageContext.request.contextPath}/user/selectall?pageNo=${requestScope.userinfo.nextPage}">下一页</a>
+    <a class="btn btn-primary upload-btn" href="${pageContext.request.contextPath}/user/selectall?pageNo=${requestScope.userinfo.pages}">末页</a>
 </div>
 <!--_footer 作为公共模版分离出去-->
 <script type="text/javascript" src="../lib/jquery/1.9.1/jquery.min.js"></script>

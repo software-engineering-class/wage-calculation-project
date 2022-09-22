@@ -62,6 +62,7 @@
                     <li class="dropDown dropDown_hover">
                         <a href="#" class="dropDown_A">user <i class="Hui-iconfont">&#xe6d5;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
+                            <li><a href="user/updateUser" >个人信息</a></li>
                             <li><a href="#" onclick="openpass();">修改密码</a></li>
                             <li><a href="${pageContext.request.contextPath}/user/logout">退出</a></li>
 
@@ -99,7 +100,14 @@
             </dd>
         </dl>
 
-
+        <dl id="menu-system">
+            <dt><i class="Hui-iconfont">&#xe62e;</i> 工资管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a data-href="wagedetail/selectall" data-title="个人工资查询管理" href="javascript:void(0)">工资明细</a></li>
+                </ul>
+            </dd>
+        </dl>
 
     </div>
 </aside>
