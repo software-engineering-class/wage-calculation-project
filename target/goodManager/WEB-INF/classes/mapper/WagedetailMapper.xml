@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.housemanager.dao.WagedetailMapper">
+
+  <insert id="saveWagedetail" parameterType="com.housemanager.pojo.Wagedetail">
+    insert into wagedetail(username,projectid,projectamount,dates) values (#{username},#{projectid},#{projectamount},#{dates})
+  </insert>
+
+
+  <delete id="deleteWagedetail" parameterType="java.lang.String">
+    delete from wagedetail where dates=#{dates}
+  </delete>
+
+
+  <select id="selectByDetailname" parameterType="java.lang.String" resultType="com.housemanager.pojo.Wagedetail">
+    select p.projectid,projectname,projectamount
+    from wagedetail d,wageproject p
+    where d.projectid=p.projectid and d.username=#{username} and d.dates=#{dates}
+  </select>
+
+
+  <select id="selectAllWagedetail" resultType="com.housemanager.pojo.Wagedetail">
+    select * from wagedetail where username='admin'
+  </select>
+
+  <select id="selectAll" parameterType="java.lang.String" resultType="com.housemanager.pojo.User">
+    SELECT DISTINCT u.`username`,u.`name`,dp.`departmentname`,d.`dates`
+    FROM USER u,wagedetail d,wageproject p,department dp
+    WHERE u.`username`=d.`username` AND d.`projectid`=p.`projectid` AND dp.`departmentid`=u.`departmentid` and u.username=#{username} and u.name=#{name} and d.dates=#{dates}
+  </select>
+
+  <select id="selectAllS" parameterType="java.lang.String" resultType="com.housemanager.pojo.Wagedetail">
+    SELECT p.`projectname`,d.`projectamount`
+    FROM USER u,wagedetail d,wageproject p,department dp
+    WHERE u.`username`=d.`username` AND d.`projectid`=p.`projectid` AND dp.`departmentid`=u.`departmentid` and u.username=#{username} and u.name=#{name} and d.dates=#{dates}
+  </select>
+
+
+</mapper>

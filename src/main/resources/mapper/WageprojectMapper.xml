@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.housemanager.dao.WageprojectMapper">
+
+  <insert id="saveWageproject" parameterType="com.housemanager.pojo.Wageproject">
+    insert into wageproject(projectname,types,note) values (#{projectname},#{types},#{note})
+  </insert>
+
+  <update id="updateWageproject" parameterType="com.housemanager.pojo.Wageproject">
+    update wageproject
+    <set>
+      <if test="projectname!=null">
+        projectname=#{projectname},
+      </if>
+      <if test="types!=null">
+        types=#{types},
+      </if>
+      <if test="note!=null">
+        note=#{note},
+      </if>
+
+    </set>
+    where projectid=#{projectid}
+  </update>
+
+  <delete id="deleteWageproject" parameterType="java.lang.Integer">
+    delete from wageproject where projectid=#{projectid}
+  </delete>
+
+  <select id="selectWageprojectById" parameterType="java.lang.Integer" resultType="com.housemanager.pojo.Wageproject">
+    select * from wageproject where projectid=#{projectid}
+  </select>
+
+  <select id="selectWageprojectByName" parameterType="java.lang.String" resultType="com.housemanager.pojo.Wageproject">
+    select * from wageproject where projectname=#{projectname}
+  </select>
+
+  <select id="selectByProjectname" parameterType="java.lang.String" resultType="com.housemanager.pojo.Wageproject">
+    select * from wageproject where projectname=#{projectname}
+  </select>
+
+
+  <select id="selectAllWageproject" resultType="com.housemanager.pojo.Wageproject">
+    select * from wageproject
+  </select>
+
+</mapper>

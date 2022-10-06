@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.housemanager.dao.UserMapper">
+
+  <select id="selectAllUser" resultType="com.housemanager.pojo.User">
+    select userid,username,name,ID_card,pay_card,phone,departmentname,u.departmentid
+    from user u,department d
+    where u.departmentid=d.departmentid
+  </select>
+
+
+  <select id="selectUserByName" parameterType="java.lang.String" resultType="com.housemanager.pojo.User">
+    select userid,username,name,ID_card,pay_card,phone,departmentname,u.departmentid
+    from user u,department d
+    where u.departmentid=d.departmentid and u.username=#{username}
+  </select>
+
+
+
+  <select id="selectAll"  resultType="com.housemanager.pojo.User">
+    select * from user where user.username=#{username} and user.password=#{password}
+  </select>
+
+
+  <select id="selectPass" resultType="com.housemanager.pojo.User">
+    select * from user where user.ID_card=#{ID_card} and user.pay_card=#{pay_card}
+  </select>
+
+
+  <update id="updatePass" parameterType="com.housemanager.pojo.User">
+    update user set password=#{password} where userid=#{userid}
+  </update>
+
+
+  <insert id="saveUser" parameterType="com.housemanager.pojo.User">
+    insert into User(username,status,password) values (#{username},#{status},#{password})
+  </insert>
+
+  <delete id="deleteUser" parameterType="java.lang.Integer">
+    delete from user where userid=#{userid}
+  </delete>
+
+  <select id="selectUserById" parameterType="java.lang.Integer" resultType="com.housemanager.pojo.User">
+    select * from user where userid=#{userid}
+  </select>
+
+
+
+  <update id="updateUser" parameterType="com.housemanager.pojo.User">
+    update user
+    <set>
+      <if test="name!=null">
+        name=#{name},
+      </if>
+      <if test="pay_card!=null">
+        pay_card=#{pay_card},
+      </if>
+      <if test="ID_card!=null">
+        ID_card=#{ID_card},
+      </if>
+      <if test="phone!=null">
+        phone=#{phone},
+      </if>
+      <if test="departmentid!=null">
+        departmentid=#{departmentid},
+      </if>
+    </set>
+    where userid=#{userid}
+  </update>
+
+</mapper>
